@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expanding Bar</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://i.postimg.cc/kXdhXMMQ/Get-started-in-Canva-2.png');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Rubik', sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bottom-text {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 48px;
+            color: white;
+        }
+
+        .rounded-square {
+            width: 80px;
+            height: 80px;
+            background-color: #333333;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            transition: width 0.3s ease;
+        }
+
+        .bar {
+            width: 0;
+            height: 80px;
+            background-color: #333333;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .expanded-bar {
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            padding: 0 20px;
+        }
+
+        .expanded-bar img {
+            width: 40px; /* Adjust the image width as needed */
+            height: 40px; /* Adjust the image height as needed */
+            cursor: pointer;
+            margin-left: 10px; /* Add margin for spacing between buttons */
+        }
+    </style>
+</head>
+<body>
+    <div class="rounded-square" id="rotateButton">
+        <div class="bar" id="bar">
+            <div class="expanded-bar" id="expandedBar">
+                <img src="https://cdn-icons-png.flaticon.com/512/16/16623.png" alt="Question" id="questionButton">
+                <a href="https://discord.gg/y9RKJ4Bns8" target="_blank"> <!-- Added Discord link -->
+                    <img src="https://clipartcraft.com/images/discord-logo-transparent-square-2.png" alt="Discord" id="discordButton">
+                </a>
+                <img src="https://webstockreview.net/images/calendar-clipart-calender-6.png" alt="Settings" id="settingsButton">
+            </div>
+        </div>
+    </div>
+    <div class="bottom-text">OmsNewz</div>
+    <script>
+        let expanded = false;
+
+        const square = document.getElementById('rotateButton');
+        const bar = document.getElementById('bar');
+        const expandedBar = document.getElementById('expandedBar');
+
+        document.getElementById('rotateButton').addEventListener('click', () => {
+            if (expanded) {
+                square.style.width = '80px';
+                bar.style.width = '0';
+                expandedBar.style.display = 'none';
+            } else {
+                square.style.width = '97%';
+                bar.style.width = '100%';
+                expandedBar.style.display = 'flex';
+            }
+            expanded = !expanded;
+        });
+    </script>
+</body>
+</html>
